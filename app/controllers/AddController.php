@@ -1,8 +1,9 @@
 <?php
 
 namespace Controllers;
-use Models\Utils;
-use Models\Add;
+// use Models\Utils;
+use Models\Users;
+use Models\Questions;
 class AddController
 {
 	protected $twig;
@@ -14,7 +15,7 @@ class AddController
         }
     public function get()
     	{
-            $username=Utils::getUserinfo($_COOKIE['user']);
+            $username=Users::getUserinfo($_COOKIE['user']);
     		if ($username['isadmin']==='1')
     		{
     			echo $this->twig->render("add.html",array(
@@ -28,7 +29,7 @@ class AddController
     	}
     public function post()
     {
-        $username=Utils::getUserinfo($_COOKIE['user']);
+        $username=Users::getUserinfo($_COOKIE['user']);
     	if ($username['isadmin']==='1')
     	{
     		$title=htmlspecialchars($_POST['title']);
@@ -39,7 +40,7 @@ class AddController
     		$d=htmlspecialchars($_POST['d']);
     		$correct=htmlspecialchars($_POST['correct']);
     		$points=htmlspecialchars($_POST['points']);
-    		Add::AddQue($title,$question,$a,$b,$c,$d,$correct,$points);
+    		Questions::AddQue($title,$question,$a,$b,$c,$d,$correct,$points);
     		echo $this->twig->render("add.html",array(
                 "user"=>$username,
     			"result"=>"question added successfully"

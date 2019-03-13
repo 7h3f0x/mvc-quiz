@@ -1,6 +1,6 @@
 <?php 
 namespace Controllers;
-use Models\Signup;
+use Models\Users;
 
 class SignupController
 {
@@ -25,7 +25,7 @@ class SignupController
         {
     		$username=htmlspecialchars($_POST['username']);
             $password=htmlspecialchars($_POST['password']);
-            if (Signup::register($username,$password))
+            if (Users::register($username,$password))
             {
             	setcookie('user',$username,time()+(86400*30),"/");
             	header("Location: /solve");

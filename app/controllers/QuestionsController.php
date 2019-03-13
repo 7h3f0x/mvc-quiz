@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
-use Models\Utils;
-use Models\Solve;
+use Models\Users;
+
 class QuestionsController
 {
 	protected $twig;
@@ -13,10 +13,10 @@ class QuestionsController
         }
 	public function get()
 	{
-		$username=Utils::getUserinfo($_COOKIE['user']);
+		$username=Users::getUserinfo($_COOKIE['user']);
 		if (isset($_COOKIE['user']))
 		{
-			$questions=Utils::getQuestions();
+			$questions=Users::getQuestions();
 			echo $this->twig->render("solve.html",array(
 				"user"=>$username,
 				"title"=>"View All Problems",

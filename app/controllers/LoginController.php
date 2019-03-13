@@ -1,7 +1,7 @@
 <?php
 
 namespace Controllers;
-use Models\Login;
+use Models\Users;
 class LoginController
 {
     protected $twig;
@@ -25,7 +25,7 @@ class LoginController
             {
                 $username=htmlspecialchars($_POST['username']);
                 $password=htmlspecialchars($_POST['password']);
-                if (Login::Validate($username, $password)) 
+                if (Users::Validate($username, $password)) 
                 {
                     setcookie('user',$username,time()+(86400*30),"/");
                     header("Location: /solve");

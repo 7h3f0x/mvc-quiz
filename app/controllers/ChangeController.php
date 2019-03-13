@@ -1,9 +1,8 @@
 <?php
 
 namespace Controllers;
-use Models\Utils;
-use Models\Change;
-
+use Models\Users;
+use Models\Questions;
 
 class ChangeController
 {
@@ -16,13 +15,13 @@ class ChangeController
         }
     public function get()
     {
-        $username=Utils::getUserinfo($_COOKIE['user']);
+        $username=Users::getUserinfo($_COOKIE['user']);
         if ($username['isadmin']==='1')
         {
             if (isset($_GET['q']))
             {
             	$number=htmlspecialchars($_GET['q']);
-            	$question=Utils::getQuestion($number);
+            	$question=Questions::getQuestion($number);
             	echo $this->twig->render("change.html",array(
                     "user"=>$username,
             		"problem"=>$question
@@ -40,7 +39,7 @@ class ChangeController
     }
     public function post()
     {
-        $username=Utils::getUserinfo($_COOKIE['user']);
+        $username=Users::getUserinfo($_COOKIE['user']);
         if ($username['isadmin']==='1')
         {
 
@@ -54,7 +53,7 @@ class ChangeController
             $correct=htmlspecialchars($_POST['correct']);
             $points=htmlspecialchars($_POST['points']);
 
-            $change=Change::changeQuestion($number,$title,$question,$a,$b,$c,$d,$correct,$points);
+            $change=Questions::changeQuestion($number,$title,$question,$a,$b,$c,$d,$correct,$points);
             echo "question changed successfully";
 
         }

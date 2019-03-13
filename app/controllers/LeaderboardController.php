@@ -1,8 +1,7 @@
 <?php
 
 namespace Controllers;
-use Models\Utils;
-use Models\Leaderboard;
+use Models\Users;
 class LeaderboardController
 {
 	protected $twig;
@@ -16,7 +15,7 @@ class LeaderboardController
     	{
             if (isset($_COOKIE['user']))
             {
-    		$users=Leaderboard::getUsers();
+    		$users=Users::getUsers();
             $rank=0;
             $count=0;
             $score=-1;
@@ -35,7 +34,7 @@ class LeaderboardController
                     $user['rank']=$rank;
                 }
             }
-            $username=Utils::getUserinfo($_COOKIE['user']);
+            $username=Users::getUserinfo($_COOKIE['user']);
             echo $this->twig->render("leaderboard.html",array(
                 "userinfo"=>$username,
                 "users"=>$users
