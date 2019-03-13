@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<title>{{ problem.Title }}</title>
+</head>
+<body>
+	<nav>
+		<a href="/solve">Solve</a>
+		<a href="/leaderboard">Leaderboard</a>
+		{% if user.isadmin ==1 %}
+		<a href="/questions">Questions</a>
+		<a href="/add">Add Questions</a>
+		{% endif %}
+		{{ user.username }}
+		Points:&nbsp;
+		<span id="points">{{ user.points }}</span>
+		<a href="/logout" id="logout">Logout</a>
+	</nav>
+	<h1 class="titlebar"><span>Title: {{ problem.Title }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Points:{{ problem.points }}</span></h1>
+	<div class="solveform">
+	<h1>Question: {{ problem.Question }}</h1><br>
+	<input type="hidden" name="q" value="{{ problem.number }}" id="q">
+	<span>Option a)<input type="radio" name="option" value="a">{{ problem.a }}</span><br>
+	<span>Option b)<input type="radio" name="option" value="b">{{ problem.b }}</span><br>
+	<span>Option c)<input type="radio" name="option" value="c">{{ problem.c }}</span><br>
+	<span>Option d)<input type="radio" name="option" value="d">{{ problem.d }}</span><br>
+	<button id="submit" class="submit">Submit</button>
+	</div>
+	<div id="result">
+	</div>
+	<script type="text/javascript" src="./js/solve.js"></script>
+</body>
+</html>

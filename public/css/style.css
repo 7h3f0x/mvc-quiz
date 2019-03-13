@@ -1,0 +1,128 @@
+#logout{
+	float: right;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+}
+html{
+	min-height: 100%;
+}
+body{
+	background: url("../assets/background.jpg");
+	padding:0;
+	margin: 0;
+	border:0;
+	min-height: 100%;
+}
+body a{
+	color:purple;
+}
+nav{
+	padding:0;
+	margin: 0;
+	box-sizing: border-box;
+	width:100%;
+	height: 30px;
+	margin: 0;
+	border:0;
+	background-color: black;
+	color: white;
+}
+nav a{
+	padding:5px;
+	font-size: 20px;
+	text-decoration: none;
+	color:lightblue;
+}
+nav a:hover{
+	color:white;
+	background-color: lightblue;
+}
+.home{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+}
+.home h1{
+	font-size: 80px;
+}
+.home_link{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	font-size: 50px;
+	margin: 10px;
+}
+table{
+	width: 75%;
+	border-collapse: collapse;
+}
+table,th,td{
+	text-align: center;
+	border: 1px solid black;
+}
+.leaderboard{
+	font-size: 20px;
+	padding-top: 15%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+.login{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+form{
+	font-size: 20px;
+}
+#form{
+	padding-top: 15%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+fieldset{
+	width: 50%;
+}
+h1{
+	font-family: 'Srisakdi', cursive;
+}
+.solveform{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+.titlebar{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.error{
+	text-align: center;
+	color: red;
+}
+input,textarea{
+	width:50%;
+}
+.submit{
+	font-weight: bold;
+	background-color: green;
+	color: lightgreen;
+	width:20%;
+	height:5%;
+	padding:5px;
+}
+#result{
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}

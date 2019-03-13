@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+	<title>Leaderboard</title>
+</head>
+<body>
+	<nav>
+		<a href="/solve">Solve</a>
+		<a href="/leaderboard">Leaderboard</a>
+		{% if userinfo.isadmin == 1 %}
+		<a href="/questions">Questions</a>
+		<a href="/add">Add Questions</a>
+		{% endif %}
+		{{ userinfo.username }}
+		Points:&nbsp;
+		<span id="points">{{ userinfo.points }}</span>
+		<a href="/logout" id="logout">Logout</a>
+	</nav>
+	<div class="leaderboard">
+		<h1>Leaderboard</h1>
+	<table>
+		<tr>
+			<th>Rank</th>
+			<th>Username</th>
+			<th>Points</th>
+		</tr>
+		{% for user in users %}
+		<tr>
+			<td>{{ user.rank }}</td>
+			<td>{{ user.username }}</td>
+			<td>{{ user.points }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	</div>
+</body>
+</html>

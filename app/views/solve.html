@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<title>{{ title }}</title>
+</head>
+<body>
+	<nav>
+		<a href="/solve">Solve</a>
+		<a href="/leaderboard">Leaderboard</a>
+		{% if user.isadmin ==1 %}
+		<a href="/questions">Questions</a>
+		<a href="/add">Add Questions</a>
+		{% endif %}
+		{{ user.username }}
+		Points:&nbsp;
+		<span id="points">{{ user.points }}</span>
+		<a href="/logout" id="logout">Logout</a>
+	</nav>
+	<div class="leaderboard">
+		<h1>Questions</h1>
+<table>
+	<tr>
+		<th>Number</th>
+		<th>Title</th>
+		<th>Points</th>
+	</tr>
+	{% for question in questions %}
+	<tr>
+		<td>{{ question.number }}</td>
+		<td><a href="/{{ purpose }}?q={{ question.number }}">{{ question.Title }}</a></td>
+		<td>{{ question.points }}</td>
+	</tr>
+	{% endfor %}
+</table>
+</div>
+</body>
+</html>

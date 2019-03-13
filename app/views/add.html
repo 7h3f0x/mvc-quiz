@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<title>Add A New Question</title>
+</head>
+<body>
+	<nav>
+		<a href="/solve">Solve</a>
+		<a href="/leaderboard">Leaderboard</a>
+		<a href="/questions">Questions</a>
+		<a href="/add">Add Questions</a>
+		{{ user.username }}
+		Points:&nbsp;
+		<span id="points">{{ user.points }}</span>
+		<a href="/logout" id="logout">Logout</a>
+	</nav>
+<form action="/add" method="POST" class="solveform">
+	<fieldset>
+		<legend>Add:</legend>
+		<div class="login">
+		<span>Title:</span><input type="text" name="title"><br>
+		<span>Question:</span><textarea name="question"></textarea><br>
+		<span>Option a)</span><input type="text" name="a"><br>
+		<span>Option b)</span><input type="text" name="b"><br>
+		<span>Option c)</span><input type="text" name="c"><br>
+		<span>Option d)</span><input type="text" name="d"><br>
+		<span>Correct option</span><input type="text" name="correct"><br>
+		<span>Points:</span><input type="text" name="points"><br>
+		<input type="submit" name="add" value="Add" class="submit">
+	</div>
+	</fieldset>
+	{{ result }}
+</form>
+</body>
+</html>

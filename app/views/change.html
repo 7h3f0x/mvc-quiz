@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<title>{{ problem.Title }}</title>
+</head>
+<body>
+	<nav>
+		<a href="/solve">Solve</a>
+		<a href="/leaderboard">Leaderboard</a>
+		<a href="/questions">Questions</a>
+		<a href="/add">Add Questions</a>
+		{{ user.username }}
+		Points:&nbsp;
+		<span id="points">{{ user.points }}</span>
+		<a href="/logout" id="logout">Logout</a>
+	</nav>
+	<div class="solveform">
+	<fieldset>
+		<legend>Change:</legend>
+		<div class="login">
+		<input type="hidden" name="q" value="{{ problem.number }}" id="q">
+		<span>Title:</span><input type="text" name="title" value="{{ problem.Title }}" id="title"><br>
+		<span>Question:</span><textarea name="question" rows="6" id="question">{{ problem.Question }}</textarea><br>
+		<span>Option a):</span><input type="text" name="a" value="{{ problem.a }}" id="a"><br>
+		<span>Option b):</span><input type="text" name="b" value="{{ problem.b }}" id="b"><br>
+		<span>Option c):</span><input type="text" name="c" value="{{ problem.c }}" id="c"><br>
+		<span>Option d):</span><input type="text" name="d" value="{{ problem.d }}" id="d"><br>
+		<span>Correct option:</span><input type="text" name="correct" value="{{ problem.correct }}" id="correct"><br>
+		<span>Points:</span><input type="text" name="points" value="{{ problem.points }}" id="point"><br>
+		<button class="submit" id="submit">Change</button>
+	</div>
+	</fieldset>
+</div>
+<div id="result">
+</div>
+<script type="text/javascript" src="./js/change.js"></script>
+</body>
+</html>

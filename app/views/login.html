@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<title>Login</title>
+</head>
+<body>
+<form action="/login" method="POST" id="form">
+	<fieldset>
+		<legend>Login:</legend>
+		<div class="login">
+		<span>Username:</span><br>
+		<input type="text" name="username" placeholder="Username" required><br>
+		<span>Password:</span><br>
+		<input type="password" name="password" placeholder="Password" required><br>
+		<input type="submit" name="login" value="Login" class="submit">
+	</div>
+	</fieldset>
+</form>
+<p class="error">
+{{ error }}
+</p>
+</body>
+</html>
